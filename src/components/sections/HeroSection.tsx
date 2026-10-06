@@ -106,7 +106,7 @@ export const HeroSection: React.FC = () => {
           >
             {/* Primary Muted Gold CTA */}
             <a
-              href="#contact"
+              href="https://wa.me/918591603834?text=Hi%20Husaina,%20I%20would%20like%20to%20reserve%20a%20mehndi%20date!" target="_blank"
               className="relative inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#D4AF37] via-[#E2C474] to-[#C49B2E] text-[#1A1412] text-xs sm:text-sm font-semibold tracking-widest uppercase shadow-[0_10px_25px_-5px_rgba(212,175,55,0.35),inset_0_1px_1px_rgba(255,255,255,0.6)] hover:-translate-y-0.5 hover:shadow-[0_15px_30px_-5px_rgba(212,175,55,0.5)] active:translate-y-0 transition-all duration-300 group overflow-hidden border border-white/40"
             >
               {/* Subtle Light Reflection Sheen */}
@@ -180,3 +180,5 @@ export const HeroSection: React.FC = () => {
 };
 
 export default HeroSection;
+
+

@@ -8,6 +8,7 @@ import PackagesSection from './components/sections/PackagesSection';
 import TransformationSection from './components/sections/TransformationSection';
 import CraftVideoSection from './components/sections/CraftVideoSection';
 import ContactSection from './components/sections/ContactSection';
+import { FooterSection } from './components/sections/FooterSection';
 import BookingModal from './components/BookingModal';
 import CurtainReveal from './components/CurtainReveal';
 import { FlipFadeText } from './components/ui/flip-fade-text';
@@ -15,14 +16,12 @@ import { Sparkles } from 'lucide-react';
 
 export const App: React.FC = () => {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
-  const [selectedPackage, setSelectedPackage] = useState("The Royal Heirloom");
 
   useEffect(() => {
     const handleOpenModal = (e: any) => {
-      if (e.detail?.package) {
-        setSelectedPackage(e.detail.package);
-      }
-      setBookingModalOpen(true);
+      const pkg = e.detail?.package ? ` for the ${e.detail.package} package` : '';
+      const text = encodeURIComponent(`Hi Husaina, I would like to book a mehndi consultation${pkg}!`);
+      window.open(`https://wa.me/918591603834?text=${text}`, '_blank');
     };
 
     window.addEventListener("open-booking-modal", handleOpenModal);
@@ -108,6 +107,9 @@ export const App: React.FC = () => {
 
           {/* SECTION 6: INTERACTIVE BOOKING & DATE RESERVATION */}
           <ContactSection />
+
+          {/* SECTION 7: RUIXEN GRADIENT FOOTER */}
+          <FooterSection />
         </div>
       </main>
 
@@ -115,10 +117,10 @@ export const App: React.FC = () => {
       <BookingModal
         isOpen={bookingModalOpen}
         onClose={() => setBookingModalOpen(false)}
-        initialPackage={selectedPackage}
       />
     </div>
   );
 };
 
 export default App;
+

@@ -64,3 +64,4 @@ export const LayoutTextFlip: React.FC<LayoutTextFlipProps> = ({
 };
 
 export default LayoutTextFlip;
+

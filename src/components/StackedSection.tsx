@@ -67,3 +67,4 @@ export const StackedSection: React.FC<StackedSectionProps> = ({
 };
 
 export default StackedSection;
+

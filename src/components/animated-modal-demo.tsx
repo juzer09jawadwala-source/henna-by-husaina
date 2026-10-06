@@ -248,3 +248,4 @@ const ParachuteIcon = ({ className }: { className?: string }) => {
     </svg>
   );
 };
+

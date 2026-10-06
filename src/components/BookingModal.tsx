@@ -65,9 +65,9 @@ export function BookingModal({
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      `Hello Zahra! I would like to inquire about booking my wedding date.\n\n👰 Name: ${formData.name || "A Bride"}\n📅 Target Date: ${formattedDate}\n✨ Package: ${packageName}\n📍 City/Venue: ${formData.city}\n💭 Vision: ${formData.notes || "Custom Bridal Suite"}\n\nPlease confirm availability!`
+      `Hello Husaina! I would like to inquire about booking my wedding date.\n\n👰 Name: ${formData.name || "A Bride"}\n📅 Target Date: ${formattedDate}\n✨ Package: ${packageName}\n📍 City/Venue: ${formData.city}\n💭 Vision: ${formData.notes || "Custom Bridal Suite"}\n\nPlease confirm availability!`
     );
-    window.open(`https://wa.me/?text=${text}`, "_blank");
+    window.open(`https://wa.me/918591603834?text=${text}`, "_blank");
   };
 
   return (
@@ -280,3 +280,5 @@ export function BookingModal({
 }
 
 export default BookingModal;
+
+

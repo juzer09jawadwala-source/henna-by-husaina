@@ -39,3 +39,5 @@ Thumbs.db
 .vercel
 scratch/
 scripts/cdata_*
+
+.vercel

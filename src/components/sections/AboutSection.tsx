@@ -48,7 +48,7 @@ export const AboutSection: React.FC = () => {
                 </p>
               </div>
               <div className="mt-3 pt-3 border-t border-[#8B3A2B]/10 flex items-center justify-between">
-                <span className="text-xs font-semibold text-[#1A1412] tracking-wide">Zahra Parveen</span>
+                <span className="text-xs font-semibold text-[#1A1412] tracking-wide">Husaina Parveen</span>
                 <span className="text-[10px] uppercase tracking-wider text-[#8B3A2B]">Founder & Artist</span>
               </div>
             </div>
@@ -137,3 +137,4 @@ export const AboutSection: React.FC = () => {
 };
 
 export default AboutSection;
+

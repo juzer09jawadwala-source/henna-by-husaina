@@ -32,9 +32,9 @@ export const ContactSection: React.FC = () => {
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      `Hello Zahra! I'm interested in reserving a date.\n\n👰 Name: ${formData.name || "A Bride"}\n📅 Date: ${formattedDate}\n✨ Package: ${packageName}\n📍 City: ${formData.city}\n\nPlease let me know your availability!`
+      `Hello Husaina! I'm interested in reserving a date.\n\n👰 Name: ${formData.name || "A Bride"}\n📅 Date: ${formattedDate}\n✨ Package: ${packageName}\n📍 City: ${formData.city}\n\nPlease let me know your availability!`
     );
-    window.open(`https://wa.me/?text=${text}`, "_blank");
+    window.open(`https://wa.me/918591603834?text=${text}`, "_blank");
   };
 
   return (
@@ -216,7 +216,7 @@ export const ContactSection: React.FC = () => {
               {submitted && (
                 <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs">
                   <span className="font-semibold block mb-0.5">✦ Inquiry Received!</span>
-                  We have tentatively held {formattedDate} for you. Zahra's atelier manager will WhatsApp you shortly with sketches & consultation availability.
+                  We have tentatively held {formattedDate} for you. Husaina's atelier manager will WhatsApp you shortly with sketches & consultation availability.
                 </div>
               )}
             </form>
@@ -228,3 +228,4 @@ export const ContactSection: React.FC = () => {
 };
 
 export default ContactSection;
+

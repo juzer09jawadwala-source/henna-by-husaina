@@ -113,7 +113,7 @@ export const Navbar: React.FC = () => {
                     isScrolled ? 'text-[#4A1521]' : 'text-[#FAF7F2]'
                   }`}
                 >
-                  Zahra
+                  Husaina
                 </span>
                 <span
                   className={`text-[9px] sm:text-[10px] tracking-[0.25em] uppercase font-sans font-medium mt-0.5 transition-colors duration-300 ${
@@ -165,7 +165,7 @@ export const Navbar: React.FC = () => {
             <div className="flex items-center gap-2.5 sm:gap-3.5">
               {/* WhatsApp Quick Touch */}
               <a
-                href="https://wa.me/"
+                href="https://wa.me/918591603834"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Direct WhatsApp Consultation"
@@ -236,7 +236,7 @@ export const Navbar: React.FC = () => {
                 <div className="w-7 h-7 rounded-full bg-[#4A1521] text-[#FAF7F2] flex items-center justify-center">
                   <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
                 </div>
-                <span className="font-serif text-lg text-[#4A1521]">Zahra Atelier</span>
+                <span className="font-serif text-lg text-[#4A1521]">Husaina Atelier</span>
               </div>
               <button
                 onClick={() => setMobileMenuOpen(false)}
@@ -287,7 +287,7 @@ export const Navbar: React.FC = () => {
                   <Instagram className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://wa.me/"
+                  href="https://wa.me/918591603834"
                   target="_blank"
                   rel="noreferrer"
                   className="p-2 rounded-full hover:bg-[#8B3A2B]/10 transition-colors"
@@ -305,3 +305,5 @@ export const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+
+
