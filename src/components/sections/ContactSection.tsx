@@ -34,7 +34,7 @@ export const ContactSection: React.FC = () => {
     const text = encodeURIComponent(
       `Hello Husaina! I'm interested in reserving a date.\n\n👰 Name: ${formData.name || "A Bride"}\n📅 Date: ${formattedDate}\n✨ Package: ${packageName}\n📍 City: ${formData.city}\n\nPlease let me know your availability!`
     );
-    window.open(`https://wa.me/918591603834?text=${text}`, "_blank");
+    window.location.href = `https://wa.me/918591603834?text=${text}`;
   };
 
   return (

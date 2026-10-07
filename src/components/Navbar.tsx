@@ -179,11 +179,10 @@ export const Navbar: React.FC = () => {
               </a>
 
               {/* Luxury "Book Date" Pill Button */}
-              <button
-                type="button"
-                onClick={() => {
-                  window.dispatchEvent(new CustomEvent('open-booking-modal'));
-                }}
+              <a
+                href="https://wa.me/918591603834?text=Hi%20Husaina,%20I%20would%20like%20to%20book%20a%20mehndi%20consultation!"
+                target="_blank"
+                rel="noreferrer"
                 className={`relative inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-wider transition-all duration-300 group overflow-hidden active:scale-95 shadow-md cursor-pointer ${
                   isScrolled
                     ? 'bg-gradient-to-r from-[#4A1521] via-[#631828] to-[#4A1521] text-[#FAF7F2] hover:shadow-lg hover:shadow-[#4A1521]/25 border border-white/20'
@@ -199,7 +198,7 @@ export const Navbar: React.FC = () => {
                   }`}
                 />
                 <span className="relative z-10 font-sans">Book Date</span>
-              </button>
+              </a>
 
               {/* Mobile Menu Trigger */}
               <button
@@ -266,17 +265,7 @@ export const Navbar: React.FC = () => {
 
             {/* Mobile Footer CTAs */}
             <div className="pt-4 border-t border-[#8B3A2B]/10 flex flex-col gap-3">
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  window.dispatchEvent(new CustomEvent('open-booking-modal'));
-                }}
-                className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#4A1521] to-[#6B1724] text-[#FAF7F2] text-xs font-semibold tracking-widest uppercase shadow-md text-center flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <Calendar className="w-3.5 h-3.5 text-[#D4AF37]" />
-                <span>Book Your Wedding Date</span>
-              </button>
+              <a href="https://wa.me/918591603834?text=Hi%20Husaina,%20I%20would%20like%20to%20book%20a%20mehndi%20consultation!" target="_blank" rel="noreferrer" onClick={() => setMobileMenuOpen(false)} className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#4A1521] to-[#6B1724] text-[#FAF7F2] text-xs font-semibold tracking-widest uppercase shadow-md text-center flex items-center justify-center gap-2 cursor-pointer"><Calendar className="w-3.5 h-3.5 text-[#D4AF37]" /><span>Book Your Wedding Date</span></a>
 
               <div className="flex items-center justify-center gap-4 text-[#8B3A2B] pt-2">
                 <a
@@ -305,5 +294,6 @@ export const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+
 
 

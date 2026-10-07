@@ -21,7 +21,7 @@ export const App: React.FC = () => {
     const handleOpenModal = (e: any) => {
       const pkg = e.detail?.package ? ` for the ${e.detail.package} package` : '';
       const text = encodeURIComponent(`Hi Husaina, I would like to book a mehndi consultation${pkg}!`);
-      window.open(`https://wa.me/918591603834?text=${text}`, '_blank');
+      window.location.href = `https://wa.me/918591603834?text=${text}`;
     };
 
     window.addEventListener("open-booking-modal", handleOpenModal);

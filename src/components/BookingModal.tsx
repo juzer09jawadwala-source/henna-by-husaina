@@ -67,7 +67,7 @@ export function BookingModal({
     const text = encodeURIComponent(
       `Hello Husaina! I would like to inquire about booking my wedding date.\n\n👰 Name: ${formData.name || "A Bride"}\n📅 Target Date: ${formattedDate}\n✨ Package: ${packageName}\n📍 City/Venue: ${formData.city}\n💭 Vision: ${formData.notes || "Custom Bridal Suite"}\n\nPlease confirm availability!`
     );
-    window.open(`https://wa.me/918591603834?text=${text}`, "_blank");
+    window.location.href = `https://wa.me/918591603834?text=${text}`;
   };
 
   return (
