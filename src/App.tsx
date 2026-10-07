@@ -8,6 +8,7 @@ import PackagesSection from './components/sections/PackagesSection';
 import TransformationSection from './components/sections/TransformationSection';
 import CraftVideoSection from './components/sections/CraftVideoSection';
 import ContactSection from './components/sections/ContactSection';
+import BackgroundShowcaseSection from './components/sections/BackgroundShowcaseSection';
 import { FooterSection } from './components/sections/FooterSection';
 import BookingModal from './components/BookingModal';
 import CurtainReveal from './components/CurtainReveal';
@@ -104,6 +105,9 @@ export const App: React.FC = () => {
 
           {/* SECTION 5: THE LIVING CRAFT CINEMATIC VIDEO BACKGROUND */}
           <CraftVideoSection />
+
+          {/* SECTION: IMMERSIVE BACKGROUND SHOWCASE */}
+          <BackgroundShowcaseSection />
 
           {/* SECTION 6: INTERACTIVE BOOKING & DATE RESERVATION */}
           <ContactSection />
