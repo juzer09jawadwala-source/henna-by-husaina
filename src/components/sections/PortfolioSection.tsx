@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, ZoomIn, X, ArrowRight } from 'lucide-react';
+import { Sparkles, ArrowRight } from 'lucide-react';
+import { Carousel, Card } from '../ui/apple-cards-carousel';
 
 // Portfolio Data
 const categories = ['All Works', 'Royal Bridal', 'Contemporary Minimalist', 'Arabic & Indo-Western', 'Sangeet Party'];
@@ -118,11 +118,54 @@ const portfolioItems = [
 
 export const PortfolioSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState('All Works');
-  const [selectedImage, setSelectedImage] = useState<typeof portfolioItems[0] | null>(null);
 
   const filteredItems = activeTab === 'All Works' 
     ? portfolioItems 
     : portfolioItems.filter(item => item.category === activeTab);
+
+  const cards = filteredItems.map((item, index) => (
+    <Card 
+      key={`${item.id}-${activeTab}`} // Re-render card if tab changes
+      index={index}
+      card={{
+        src: item.image, // BlurImage inside Card uses this
+        category: item.category,
+        title: item.title,
+        content: (
+          <div className="bg-[#FAF7F2] p-6 sm:p-10 rounded-[28px] mb-4 shadow-sm border border-[#8B3A2B]/10">
+            <p className="font-sans text-[#1A1412]/75 text-base md:text-lg font-light leading-relaxed mb-8 max-w-3xl mx-auto">
+              {item.description}
+            </p>
+            
+            <div className="w-full flex justify-center mb-10">
+              <picture className="block w-full max-w-2xl mx-auto">
+                <source srcSet={item.webp} type="image/webp" />
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-auto rounded-[24px] object-cover shadow-lg"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                const text = encodeURIComponent(`Hi Husaina, I would like to book a mehndi consultation for the ${item.title} package!`);
+                window.location.href = `https://wa.me/918591603834?text=${text}`;
+              }}
+              className="mx-auto flex items-center justify-center gap-3 px-6 py-4 rounded-full bg-[#4A1521] text-[#FAF7F2] text-sm font-semibold tracking-wider uppercase hover:bg-[#6B1724] transition-colors shadow-md group cursor-pointer"
+            >
+              <span>Inquire for this style</span>
+              <ArrowRight className="w-4 h-4 text-[#D4AF37] group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        )
+      }}
+    />
+  ));
 
   return (
     <>
@@ -160,131 +203,13 @@ export const PortfolioSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Gallery Grid */}
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 flex-1">
-          <AnimatePresence>
-            {filteredItems.map((item) => (
-              <motion.div
-                layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-                key={item.id}
-                className="group relative aspect-[4/5] rounded-[24px] overflow-hidden bg-white shadow-sm cursor-pointer border border-[#8B3A2B]/10"
-                onClick={() => setSelectedImage(item)}
-              >
-                <picture>
-                  <source srcSet={item.thumb || item.webp} type="image/webp" />
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    width={400}
-                    height={500}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </picture>
-                
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1412]/90 via-[#1A1412]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                  <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <span className="inline-block px-3 py-1 bg-[#D4AF37]/20 border border-[#D4AF37]/50 rounded-full text-[#D4AF37] text-[10px] uppercase tracking-widest font-semibold mb-3 backdrop-blur-sm">
-                      {item.category}
-                    </span>
-                    <h3 className="font-serif text-2xl font-medium text-[#FAF7F2] mb-1">{item.title}</h3>
-                    <div className="flex items-center gap-2 text-[#FAF7F2]/80 text-xs font-medium mt-4 uppercase tracking-widest">
-                      <ZoomIn className="w-4 h-4" />
-                      <span>View Detail</span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+        {/* Apple Cards Carousel */}
+        <div className="w-full flex-1">
+          <Carousel items={cards} />
+        </div>
       </div>
-
-      {/* Lightbox / Modal (Rendered above everything) */}
-      <AnimatePresence>
-        {selectedImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-8 bg-[#1A1412]/95 backdrop-blur-md"
-          >
-            {/* Close Background Area */}
-            <div 
-              className="absolute inset-0 cursor-pointer" 
-              onClick={() => setSelectedImage(null)} 
-            />
-
-            <motion.div
-              initial={{ scale: 0.95, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.95, y: 20 }}
-              className="relative w-full max-w-5xl bg-[#FAF7F2] rounded-[28px] sm:rounded-[32px] overflow-hidden shadow-2xl flex flex-col md:flex-row z-10 max-h-[90vh] overflow-y-auto"
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 z-20 p-2 bg-white/50 backdrop-blur-md hover:bg-white rounded-full text-[#1A1412] transition-colors"
-                aria-label="Close modal"
-              >
-                <X className="w-6 h-6" />
-              </button>
-
-              {/* Modal Image */}
-              <div className="w-full md:w-3/5 aspect-square md:aspect-auto md:h-[80svh] relative">
-                <picture>
-                  <source srcSet={selectedImage.webp} type="image/webp" />
-                  <img
-                    src={selectedImage.image}
-                    alt={selectedImage.title}
-                    decoding="async"
-                    className="w-full h-full object-cover"
-                  />
-                </picture>
-              </div>
-
-              {/* Modal Details */}
-              <div className="w-full md:w-2/5 p-8 md:p-12 flex flex-col justify-center">
-                <span className="text-[#8B3A2B] text-xs font-semibold uppercase tracking-widest mb-4">
-                  {selectedImage.category}
-                </span>
-                <h3 className="font-serif text-3xl md:text-4xl text-[#4A1521] leading-tight mb-6">
-                  {selectedImage.title}
-                </h3>
-                <p className="font-sans text-[#1A1412]/75 text-base md:text-lg font-light leading-relaxed mb-10">
-                  {selectedImage.description}
-                </p>
-                
-                <button
-                  type="button"
-                  onClick={() => {
-                    const styleTitle = selectedImage.title;
-                    setSelectedImage(null);
-                    window.dispatchEvent(
-                      new CustomEvent('open-booking-modal', {
-                        detail: { package: styleTitle },
-                      })
-                    );
-                  }}
-                  className="inline-flex items-center justify-center gap-3 w-full px-6 py-4 rounded-full bg-[#4A1521] text-[#FAF7F2] text-sm font-semibold tracking-wider uppercase hover:bg-[#6B1724] transition-colors shadow-md group cursor-pointer"
-                >
-                  <span>Inquire for this style</span>
-                  <ArrowRight className="w-4 h-4 text-[#D4AF37] group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 };
 
 export default PortfolioSection;
-
